@@ -14,12 +14,6 @@
      <splash-texture>Aircraft/D520/d520-splash.png</splash-texture>
     </startup>
 
-    <systems>
-      <electrical>
-        <path>Aircraft/j3cub/cub-electrical.xml</path>
-      </electrical>
-    </systems> 
-
     <sound>
       <path>Aircraft/D520/Sounds/d520-sound.xml</path>
     </sound>

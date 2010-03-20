@@ -36,18 +36,24 @@
     <object-name>porteD</object-name>
     <object-name>axeD</object-name>
     <object-name>roueD</object-name> 
+    <object-name>axeA</object-name> 
     <object-name>roueA</object-name> 
     <object-name>tourvitres</object-name>
     <object-name>tourcanopy</object-name>
     <object-name>profondeur</object-name>
     <object-name>trous</object-name>
     <object-name>antene</object-name>
+    <object-name>antene2</object-name>
+    <object-name>pito</object-name>
 
     <!-- Objets transparents -->
     <object-name>vitres</object-name>
     <object-name>canopy</object-name>
     <object-name>propdisc</object-name>
     <object-name>propblur</object-name>
+    <object-name>lampeG</object-name>
+    <object-name>lampeD</object-name>
+    <object-name>lampeA</object-name>
   </animation>
 
   <animation>
@@ -64,6 +70,9 @@
     <object-name>canopy</object-name>
     <object-name>propdisc</object-name>
     <object-name>propblur</object-name>
+    <object-name>lampeG</object-name>
+    <object-name>lampeD</object-name>
+    <object-name>lampeA</object-name>
   </animation>
 
   <animation>
@@ -89,12 +98,15 @@
     <object-name>porteD</object-name>
     <object-name>axeD</object-name>
     <object-name>roueD</object-name> 
+    <object-name>axeA</object-name> 
     <object-name>roueA</object-name> 
     <object-name>tourvitres</object-name>
     <object-name>tourcanopy</object-name>
     <object-name>profondeur</object-name>
     <object-name>trous</object-name>
     <object-name>antene</object-name>
+    <object-name>antene2</object-name>
+    <object-name>pito</object-name>
 
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
@@ -531,6 +543,173 @@
       <z> 0 </z>
     </axis>
   </animation>
+
+  <!-- Antenne inférieure -->
+  <animation>
+    <type>rotate</type>
+    <object-name>antene2</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1 </ind><dep> -98 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m>  0.420 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.567 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Compression -->
+  <animation>
+    <name>RoueGauche</name>
+    <object-name>axeG</object-name>
+    <object-name>roueG</object-name>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>RoueGauche</object-name>
+    <property>gear/gear[0]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.3 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <name>RoueDroite</name>
+    <object-name>axeD</object-name>
+    <object-name>roueD</object-name>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>RoueDroite</object-name>
+    <property>gear/gear[1]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.3 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <!-- Rotation des roues lors du roulage -->
+  <animation>
+    <type>spin</type>
+    <object-name>roueG</object-name>
+    <property>gear/gear[0]/rollspeed-ms</property>
+    <factor> -30 </factor>
+    <axis>
+      <x1-m> -1.983 </x1-m>
+      <y1-m> -1.379 </y1-m>
+      <z1-m> -1.420 </z1-m>
+      <x2-m> -1.984 </x2-m>
+      <y2-m> -1.230 </y2-m>
+      <z2-m> -1.431 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>roueD</object-name>
+    <property>gear/gear[1]/rollspeed-ms</property>
+    <factor> -30 </factor>
+    <axis>
+      <x1-m> -1.984 </x1-m>
+      <y1-m>  1.230 </y1-m>
+      <z1-m> -1.431 </z1-m>
+      <x2-m> -1.983 </x2-m>
+      <y2-m>  1.379 </y2-m>
+      <z2-m> -1.420 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>roueA</object-name>
+    <property>gear/gear[2]/rollspeed-ms</property>
+    <factor> 30 </factor>
+    <center>
+      <x-m>  3.362 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.331 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <!-- Ajout des effets lumineux -->
+  <model>
+    <path>Aircraft/D520/Models/light/beacon.xml</path>
+    <offsets>
+      <x-m>  3.410 </x-m>
+      <y-m> -0.041 </y-m>
+      <z-m>  1.693 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/D520/Models/light/beacon.xml</path>
+    <offsets>
+      <x-m> 3.410 </x-m>
+      <y-m> 0.041 </y-m>
+      <z-m> 1.693 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/D520/Models/light/RedLight.xml</path>
+    <offsets>
+      <x-m> -1.468 </x-m>
+      <y-m> -5.087 </y-m>
+      <z-m> -0.119 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/D520/Models/light/GreenLight.xml</path>
+    <offsets>
+      <x-m> -1.468 </x-m>
+      <y-m>  5.087 </y-m>
+      <z-m> -0.119 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/D520/Models/light/StrobeWhite.xml</path>
+    <offsets>
+      <x-m> -1.478 </x-m>
+      <y-m> -5.087 </y-m>
+      <z-m> -0.119 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/D520/Models/light/StrobeWhite.xml</path>
+    <offsets>
+      <x-m> -1.478 </x-m>
+      <y-m>  5.087 </y-m>
+      <z-m> -0.119 </z-m>
+    </offsets>
+  </model>
 
 </PropertyList>
 

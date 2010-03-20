@@ -2,12 +2,13 @@
 
 <PropertyList>
 
-  <path>airspeed.ac</path>
+  <path>vsi.ac</path>
 
   <animation>
     <object-name>fond</object-name>
-    <object-name>visses</object-name>
     <object-name>face</object-name>
+    <object-name>visses</object-name>
+    <object-name>cache</object-name>
     <object-name>needle</object-name>
 
     <object-name>vitre</object-name>
@@ -40,24 +41,23 @@
   <animation>
     <type>rotate</type>
     <object-name>needle</object-name>
-    <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-    <factor> 1.852 </factor>
+    <property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
     <interpolation>
-      <entry><ind>   0 </ind><dep>   0 </dep></entry>
-      <entry><ind> 200 </ind><dep>  83 </dep></entry>
-      <entry><ind> 300 </ind><dep> 174 </dep></entry>
-      <entry><ind> 460 </ind><dep> 361 </dep></entry>
-      <entry><ind> 500 </ind><dep> 414 </dep></entry>
-      <entry><ind> 600 </ind><dep> 553 </dep></entry>
-      <entry><ind> 700 </ind><dep> 692 </dep></entry>
+      <entry><ind> -5905</ind><dep>  160 </dep></entry>
+      <entry><ind> -4724</ind><dep>  127 </dep></entry>
+      <entry><ind> -3543</ind><dep>   90 </dep></entry>
+      <entry><ind> -1771</ind><dep>   53 </dep></entry>
+      <entry><ind>     0</ind><dep>    0 </dep></entry>
+      <entry><ind>  1771</ind><dep>  -53 </dep></entry>
+      <entry><ind>  3543</ind><dep>  -90 </dep></entry>
+      <entry><ind>  4724</ind><dep> -127 </dep></entry>
+      <entry><ind>  5905</ind><dep> -160 </dep></entry>
     </interpolation>
     <axis>
-      <x> -1 </x>
-      <y>  0 </y>
-      <z>  0 </z>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
 
 </PropertyList>
-
-
