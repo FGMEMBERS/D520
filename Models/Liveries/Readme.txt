@@ -1,6 +1,6 @@
 default
 
-These liveries were made by : Laurent HAYVEL 2008
+doret
 
-Thanks to him.
+These liveries were made by : Emmanuel BARANGER 2010
 
