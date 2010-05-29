@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>collimator.ac</path>
+
+  <animation>
+    <object-name>support</object-name>
+    <object-name>base</object-name>
+    <object-name>projo</object-name>
+    <object-name>toit</object-name>
+    <object-name>montants</object-name>
+    <object-name>attache</object-name>
+    <object-name>bouton1</object-name>
+    <object-name>bouton2</object-name>
+    <object-name>bouton3</object-name>
+    <object-name>manette</object-name>
+    <object-name>info</object-name>
+    <object-name>barre</object-name>
+    <object-name>molette</object-name>
+
+    <object-name>vitre</object-name>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>vitre</object-name>
+    <emission>
+      <red>   0.50 </red>
+      <green> 0.50 </green>
+      <blue>  0.50 </blue>
+      <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
+    </emission>
+  </animation>
+
+</PropertyList>
+

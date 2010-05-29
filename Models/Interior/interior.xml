@@ -10,6 +10,11 @@
     <object-name>inttour</object-name>
     <object-name>inttourvitres</object-name>
     <object-name>inttourcanopy</object-name>
+    <object-name>armature</object-name>
+    <object-name>structure</object-name>
+    <object-name>fond</object-name>
+    <object-name>renfort</object-name>
+    <object-name>bloc1</object-name>
 
     <!-- Objets transparents -->
     <object-name>intvitres</object-name>
@@ -71,6 +76,16 @@
       <z> 0 </z>
     </axis>
   </animation>
+
+  <!-- COLLIMATOR -->
+  <model>
+    <path>Aircraft/D520/Models/Interior/Panel/Instruments/collimator/collimator.xml</path>
+    <offsets>
+      <x-m> -0.427 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.823 </z-m>
+    </offsets>
+  </model>
 
 </PropertyList>
 
