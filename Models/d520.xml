@@ -7,22 +7,34 @@
   <nasal>
     <load>
       var livery_update = aircraft.livery_update.new("Aircraft/D520/Models/Liveries", 10);
+
+      var self = cmdarg();
+
+      var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
+      var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
+      
+      var crew_door = self.getNode("instrumentation/doors/crew/position-norm", 1);
+      var passenger_door = self.getNode("instrumentation/doors/passenger/position-norm", 1);
+    
+      crew_door.alias(float_0);
+      passenger_door.alias(float_1);
     </load>
+
     <unload>
       livery_update.stop();
+      crew_door.unalias();
+      passenger_door.unalias();
     </unload>
   </nasal>
 
   <animation>
     <!-- Objets opaques -->
     <object-name>fuselage</object-name>
-    <object-name>echappements</object-name>
     <object-name>air</object-name>
     <object-name>ailettes</object-name>
     <object-name>priseair</object-name>
     <object-name>direction</object-name>
     <object-name>bol</object-name>
-    <object-name>helice</object-name>
     <object-name>ailes</object-name>
     <object-name>aileronG</object-name>
     <object-name>aileronD</object-name>
@@ -31,20 +43,25 @@
     <object-name>ailes2</object-name>
     <object-name>profondeur</object-name>
     <object-name>porteG</object-name>
+    <object-name>porteD</object-name>
+    <object-name>tourvitres</object-name>
+    <object-name>tourcanopy</object-name>
+    <object-name>profondeur</object-name>
+    <object-name>antene</object-name>
+    <object-name>antene2</object-name>
+    <object-name>pito</object-name>
+
+    <object-name>echappements</object-name>
+    <object-name>helice</object-name>
+    <object-name>cachesguns</object-name>
+    <object-name>guns</object-name>
     <object-name>axeG</object-name>
     <object-name>roueG</object-name>
-    <object-name>porteD</object-name>
     <object-name>axeD</object-name>
     <object-name>roueD</object-name> 
     <object-name>axeA</object-name> 
     <object-name>roueA</object-name> 
-    <object-name>tourvitres</object-name>
-    <object-name>tourcanopy</object-name>
-    <object-name>profondeur</object-name>
     <object-name>trous</object-name>
-    <object-name>antene</object-name>
-    <object-name>antene2</object-name>
-    <object-name>pito</object-name>
 
     <!-- Objets transparents -->
     <object-name>vitres</object-name>
@@ -57,34 +74,13 @@
   </animation>
 
   <animation>
-    <type>shader</type>
-    <shader>chrome</shader>
-    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
-    <object-name>vitres</object-name>
-    <object-name>canopy</object-name>
-  </animation>
-
-  <animation>
-    <type>noshadow</type>
-    <object-name>vitres</object-name>
-    <object-name>canopy</object-name>
-    <object-name>propdisc</object-name>
-    <object-name>propblur</object-name>
-    <object-name>lampeG</object-name>
-    <object-name>lampeD</object-name>
-    <object-name>lampeA</object-name>
-  </animation>
-
-  <animation>
     <type>material</type>
     <object-name>fuselage</object-name>
-    <object-name>echappements</object-name>
     <object-name>air</object-name>
     <object-name>ailettes</object-name>
     <object-name>priseair</object-name>
     <object-name>direction</object-name>
     <object-name>bol</object-name>
-    <object-name>helice</object-name>
     <object-name>ailes</object-name>
     <object-name>aileronG</object-name>
     <object-name>aileronD</object-name>
@@ -93,20 +89,25 @@
     <object-name>ailes2</object-name>
     <object-name>profondeur</object-name>
     <object-name>porteG</object-name>
+    <object-name>porteD</object-name>
+    <object-name>tourvitres</object-name>
+    <object-name>tourcanopy</object-name>
+    <object-name>profondeur</object-name>
+    <object-name>antene</object-name>
+    <object-name>antene2</object-name>
+    <object-name>pito</object-name>
+
+    <object-name>echappements</object-name>
+    <object-name>helice</object-name>
+    <object-name>cachesguns</object-name>
+    <object-name>guns</object-name>
     <object-name>axeG</object-name>
     <object-name>roueG</object-name>
-    <object-name>porteD</object-name>
     <object-name>axeD</object-name>
     <object-name>roueD</object-name> 
     <object-name>axeA</object-name> 
     <object-name>roueA</object-name> 
-    <object-name>tourvitres</object-name>
-    <object-name>tourcanopy</object-name>
-    <object-name>profondeur</object-name>
     <object-name>trous</object-name>
-    <object-name>antene</object-name>
-    <object-name>antene2</object-name>
-    <object-name>pito</object-name>
 
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
@@ -142,22 +143,55 @@
 -->
   </animation>
 
+  <effect>
+    <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+    <object-name>fuselage</object-name>
+    <object-name>air</object-name>
+    <object-name>ailettes</object-name>
+    <object-name>priseair</object-name>
+    <object-name>direction</object-name>
+    <object-name>bol</object-name>
+    <object-name>ailes</object-name>
+    <object-name>aileronG</object-name>
+    <object-name>aileronD</object-name>
+    <object-name>voletG</object-name>
+    <object-name>voletD</object-name>
+    <object-name>ailes2</object-name>
+    <object-name>profondeur</object-name>
+    <object-name>porteG</object-name>
+    <object-name>porteD</object-name>
+    <object-name>tourvitres</object-name>
+    <object-name>tourcanopy</object-name>
+    <object-name>profondeur</object-name>
+    <object-name>antene</object-name>
+    <object-name>antene2</object-name>
+    <object-name>pito</object-name>
+  </effect>
+
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    <object-name>vitres</object-name>
+    <object-name>canopy</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>vitres</object-name>
+    <object-name>canopy</object-name>
+    <object-name>propdisc</object-name>
+    <object-name>propblur</object-name>
+    <object-name>lampeG</object-name>
+    <object-name>lampeD</object-name>
+    <object-name>lampeA</object-name>
+  </animation>
+
   <!-- Une ombre pour OSG -->
   <model>
     <name>shadowOSG</name>
     <path>Aircraft/D520/Models/shadow.xml</path>
   </model>
-
-  <animation>
-    <type>select</type>
-    <object-name>shadowOSG</object-name>
-    <condition>
-      <equals>
-        <property>sim[0]/rendering/shadows-ai</property>
-        <value>true</value>
-      </equals>
-    </condition>
-  </animation>
 
   <!-- Interieur -->
   <model>
@@ -169,10 +203,116 @@
     </offsets>
   </model>
 
+  <!-- Cranking effects -->
+  <!-- Left -->
+  <model>
+    <path>Aircraft/D520/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -4.149 </x-m>
+      <y-m> -0.562 </y-m>
+      <z-m>  0.387 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/D520/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -3.899 </x-m>
+      <y-m> -0.562 </y-m>
+      <z-m>  0.387 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/D520/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -3.503 </x-m>
+      <y-m> -0.562 </y-m>
+      <z-m>  0.387 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/D520/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -3.207 </x-m>
+      <y-m> -0.562 </y-m>
+      <z-m>  0.387 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Right -->
+  <model>
+    <path>Aircraft/D520/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -4.149 </x-m>
+      <y-m>  0.562 </y-m>
+      <z-m>  0.387 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/D520/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -3.899 </x-m>
+      <y-m>  0.562 </y-m>
+      <z-m>  0.387 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/D520/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -3.503 </x-m>
+      <y-m>  0.562 </y-m>
+      <z-m>  0.387 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/D520/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -3.207 </x-m>
+      <y-m>  0.562 </y-m>
+      <z-m>  0.387 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Effets sur le sol -->
+  <!-- Roue gauche -->
+  <model>
+    <path>Aircraft/D520/Models/Effects/ground/ground0.xml</path>
+    <offsets>
+      <x-m> -1.936 </x-m>
+      <y-m> -1.324 </y-m>
+      <z-m> -1.755 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Roue droite -->
+  <model>
+    <path>Aircraft/D520/Models/Effects/ground/ground1.xml</path>
+    <offsets>
+      <x-m> -1.936 </x-m>
+      <y-m>  1.324 </y-m>
+      <z-m> -1.755 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Patte de queue -->
+  <model>
+    <path>Aircraft/D520/Models/Effects/ground/ground2.xml</path>   
+    <offsets>
+      <x-m>  3.362 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.470 </z-m>
+    </offsets>
+  </model>
+
   <!-- Effets de tir -->
   <!-- Gauche extérieur -->
   <model>
-    <path>Aircraft/MS-406/Models/Effects/fire.xml</path>
+    <path>Aircraft/D520/Models/Effects/guns/fire.xml</path>
     <offsets>
       <x-m> -2.190 </x-m>
       <y-m> -1.923 </y-m>
@@ -185,7 +325,7 @@
 
   <!-- Gauche intérieur -->
   <model>
-    <path>Aircraft/MS-406/Models/Effects/fire.xml</path>
+    <path>Aircraft/D520/Models/Effects/guns/fire.xml</path>
     <offsets>
       <x-m> -2.211 </x-m>
       <y-m> -1.751 </y-m>
@@ -198,7 +338,7 @@
 
   <!-- Droite intérieur -->
   <model>
-    <path>Aircraft/MS-406/Models/Effects/fire.xml</path>
+    <path>Aircraft/D520/Models/Effects/guns/fire.xml</path>
     <offsets>
       <x-m> -2.211 </x-m>
       <y-m>  1.751 </y-m>
@@ -211,7 +351,7 @@
 
   <!-- Droite extérieur -->
   <model>
-    <path>Aircraft/MS-406/Models/Effects/fire.xml</path>
+    <path>Aircraft/D520/Models/Effects/guns/fire.xml</path>
     <offsets>
       <x-m> -2.190 </x-m>
       <y-m>  1.923 </y-m>
@@ -224,7 +364,7 @@
 
   <!-- Canon moteur -->
   <model>
-    <path>Aircraft/MS-406/Models/Effects/fire.xml</path>
+    <path>Aircraft/D520/Models/Effects/guns/fire.xml</path>
     <offsets>
       <x-m> -4.269 </x-m>
       <y-m>  0.000 </y-m>
