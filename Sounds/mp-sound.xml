@@ -360,78 +360,6 @@
       <max-dist>20.0</max-dist>
     </stall>
 
-    <click> 
-      <name>mag left click down</name>
-      <path>Aircraft/D520/Sounds/click.wav</path>
-      <condition> 
-        <property>controls/engines/engine/mag-switch-left</property>
-      </condition>
-      <volume> 
-        <factor>1.0</factor>
-      </volume>
-    </click>
-
-    <click> 
-      <name>mag left click up</name>
-      <path>Aircraft/D520/Sounds/click.wav</path>
-      <condition> 
-        <not> 
-          <property>controls/engines/engine/mag-switch-left</property>
-        </not>
-      </condition>
-      <volume> 
-        <factor>1.0</factor>
-      </volume>
-    </click>
-
-    <click> 
-      <name>mag right click down</name>
-      <path>Aircraft/D520/Sounds/click.wav</path>
-      <condition> 
-        <property>controls/engines/engine/mag-switch-right</property>
-      </condition>
-      <volume> 
-        <factor>1.0</factor>
-      </volume>
-    </click>
-
-    <click> 
-      <name>mag right click up</name>
-      <path>Aircraft/D520/Sounds/click.wav</path>
-      <condition> 
-        <not> 
-          <property>controls/engines/engine/mag-switch-right</property>
-        </not>
-      </condition>
-      <volume> 
-        <factor>1.0</factor>
-      </volume>
-    </click>
-
-    <click> 
-      <name>rgs main click down</name>
-      <path>Aircraft/D520/Sounds/click.wav</path>
-      <condition> 
-        <property>controls/switches/gun-sight-main</property>
-      </condition>
-      <volume> 
-        <factor>1.0</factor>
-      </volume>
-    </click>
-
-    <click> 
-      <name>rgs main click up</name>
-      <path>Aircraft/D520/Sounds/click.wav</path>
-      <condition> 
-        <not> 
-          <property>controls/switches/gun-sight-main</property>
-        </not>
-      </condition>
-      <volume> 
-        <factor>1.0</factor>
-      </volume>
-    </click>
-
     <guns> 
       <name>gunfire</name>
       <mode>looped</mode>
@@ -446,58 +374,6 @@
       </volume>
     </guns>
 
-    <click> 
-      <name>nav lights click down</name>
-      <path>Aircraft/D520/Sounds/click.wav</path>
-      <condition> 
-        <property>controls/lighting/nav-lights</property>
-      </condition>
-      <volume> 
-        <factor>1.0</factor>
-        <min>0.1</min>
-        <max>0.9</max>
-      </volume>
-    </click>
-
-    <click> 
-      <name>nav lights click up</name>
-      <path>Aircraft/D520/Sounds/click.wav</path>
-      <condition> 
-        <not> 
-          <property>controls/lighting/nav-lights</property>
-        </not>
-      </condition>
-      <volume> 
-        <factor>1.0</factor>
-        <min>0.1</min>
-        <max>0.9</max>
-      </volume>
-    </click>
-
-    <rain>
-      <name>rain</name>
-      <mode>looped</mode>
-      <path>Aircraft/D520/Sounds/rain_canopy.wav</path>
-      <condition>
-        <greater-than>
-          <property>/environment/rain-norm</property>
-          <value>0.2</value>
-        </greater-than>
-      </condition>
-      <volume>
-        <property>/environment/rain-norm</property>
-        <factor>1.00</factor>
-        <offset>0.00</offset>
-        <min>0.4</min>
-        <max>0.9</max>
-      </volume>
-      <pitch>
-        <property>/velocities/airspeed-kt</property>
-        <factor>0.001</factor>
-        <offset>1.0</offset>
-      </pitch>
-    </rain>
-    
   </fx>
 
 </PropertyList>

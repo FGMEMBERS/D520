@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
-<!-- Flack burst (cannon impact), by Dave Culp -->
 <PropertyList>
 
   <submodel>
@@ -20,7 +19,7 @@
     <buoyancy>32.1</buoyancy>
     <aero-stabilised>false</aero-stabilised>
     <fuse-range>0</fuse-range>
-    <life>6</life>
+    <life>0.2</life>
   </submodel>
 
 </PropertyList>
