@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList> 
 
@@ -6,7 +6,7 @@
 
     <crank> 
       <name>engstart</name>
-      <path>Sounds/engstart.wav</path>
+      <path>Aircraft/D520/Sounds/start.wav</path>
       <property>/engines/engine/cranking</property>
       <volume> 
         <property>/orientation/alpha-deg</property>
@@ -43,7 +43,7 @@
     <engine> 
       <name>engine idle rpm</name>
       <mode>looped</mode>
-      <path>Aircraft/D520/Sounds/merlin_rpm1.wav</path>
+      <path>Aircraft/D520/Sounds/rpm-low.wav</path>
       <condition> 
         <property>/engines/engine/running</property>
        <less-than> 
@@ -80,7 +80,7 @@
     <engine-2> 
       <name>engine low rpm</name>
       <mode>looped</mode>
-      <path>Aircraft/D520/Sounds/spita.wav</path>
+      <path>Aircraft/D520/Sounds/rpm-low.wav</path>
       <condition> 
         <property>/engines/engine/running</property>
         <greater-than-equals> 
@@ -118,7 +118,7 @@
     <engine-4> 
       <name>engine high rpm</name>
       <mode>looped</mode>
-      <path>Aircraft/D520/Sounds/merlin_rpm4.wav</path>
+      <path>Aircraft/D520/Sounds/rpm-high.wav</path>
       <condition> 
         <property>/engines/engine/running</property>
         <greater-than-equals> 
@@ -150,7 +150,7 @@
 
     <engine-0> 
       <name>engine shut down rpm</name>
-      <path>Aircraft/D520/Sounds/merlin_shutdown.wav</path>
+      <path>Aircraft/D520/Sounds/shutdown.wav</path>
       <condition> 
         <property>/engines/engine/running</property>
         <not> 
@@ -256,7 +256,7 @@
       <name>canopy slide</name>
       <mode>in-transit</mode>
       <path>Aircraft/D520/Sounds/canopy_slide.wav</path>
-      <property>gear/canopy/position-norm</property>
+      <property>/instrumentation/doors/crew/position-norm</property>
       <volume> 
         <factor>0.3</factor>
       </volume>
@@ -272,7 +272,7 @@
       <path>Sounds/wind.wav</path>
       <condition> 
         <equals> 
-          <property>gear/canopy/position-norm</property>
+          <property>/instrumentation/doors/crew/position-norm</property>
           <value>0</value>
         </equals>
       </condition>
@@ -305,7 +305,7 @@
       <path>Sounds/wind.wav</path>
       <condition> 
         <greater-than> 
-          <property>gear/canopy/position-norm</property>
+          <property>/instrumentation/doors/crew/position-norm</property>
           <value>0.01</value>
         </greater-than>
       </condition>
@@ -435,7 +435,7 @@
     <guns> 
       <name>gunfire</name>
       <mode>looped</mode>
-      <path>Aircraft/D520/Sounds/gunfire_1.wav</path>
+      <path>Aircraft/D520/Sounds/gunfire.wav</path>
       <condition> 
         <property>controls/armament/trigger</property>
         <property>ai/submodels/submodel/count</property>
@@ -474,6 +474,30 @@
       </volume>
     </click>
 
+    <rain>
+      <name>rain</name>
+      <mode>looped</mode>
+      <path>Aircraft/D520/Sounds/rain_canopy.wav</path>
+      <condition>
+        <greater-than>
+          <property>/environment/rain-norm</property>
+          <value>0.2</value>
+        </greater-than>
+      </condition>
+      <volume>
+        <property>/environment/rain-norm</property>
+        <factor>1.00</factor>
+        <offset>0.00</offset>
+        <min>0.4</min>
+        <max>0.9</max>
+      </volume>
+      <pitch>
+        <property>/velocities/airspeed-kt</property>
+        <factor>0.001</factor>
+        <offset>1.0</offset>
+      </pitch>
+    </rain>
+    
   </fx>
 
 </PropertyList>

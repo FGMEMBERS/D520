@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
 
@@ -14,6 +14,7 @@
     <object-name>structure</object-name>
     <object-name>fond</object-name>
     <object-name>renfort</object-name>
+    <object-name>planchet</object-name>
     <object-name>bloc1</object-name>
 
     <!-- Objets transparents -->
@@ -21,19 +22,54 @@
     <object-name>intcanopy</object-name>
   </animation>
 
-  <animation>
-    <type>shader</type>
-    <shader>chrome</shader>
-    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
     <object-name>intvitres</object-name>
     <object-name>intcanopy</object-name>
-  </animation>
-
+  </effect>
+  
   <animation>
-    <type>noshadow</type>
+    <type>select</type>
     <object-name>intvitres</object-name>
     <object-name>intcanopy</object-name>
+    <condition>
+      <less-than>
+        <property>/environment/rain-norm</property>
+        <value>0.1</value>
+      </less-than>
+    </condition>
   </animation>
+  
+  <!-- Raind Drops Effect -->
+  <model>
+    <path>Aircraft/D520/Models/Effects/RainDrops/rainglass.xml</path>
+    <condition>
+      <greater-than>
+        <property>/environment/rain-norm</property>
+        <value>0.1</value>
+      </greater-than>
+    </condition>
+  </model>
+  
+  <!-- Planches de bord -->
+  <model>
+    <path>Aircraft/D520/Models/Interior/Panel/panel.xml</path>
+    <offsets>
+      <x-m> -0.662 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.367 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- Seat -->
+  <model>
+    <path>Aircraft/D520/Models/Interior/Seat/seat.xml</path>
+    <offsets>
+      <x-m> 0.25 </x-m>
+      <y-m> 0.00 </y-m>
+      <z-m> 0.26 </z-m>
+    </offsets>
+  </model>
 
   <!-- Pilote -->
   <model>
@@ -44,17 +80,7 @@
       <z-m>  0.434 </z-m>
     </offsets>
   </model>
-
-  <!-- Planches de bord -->
-  <model>
-    <path>Aircraft/D520/Models/Interior/Panel/panel.xml</path>
-    <offsets>
-      <x-m> -0.662 </x-m>
-      <y-m>  0.000 </y-m>
-      <z-m>  0.367 </z-m>
-    </offsets>
-  </model>
-
+  
   <!-- Canopy -->
   <animation>
     <name>AllIntCanopy</name>
@@ -63,9 +89,23 @@
   </animation>
 
   <animation>
+    <type>pick</type>
+    <object-name>AllIntCanopy</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.crew.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
     <type>translate</type>
     <object-name>AllIntCanopy</object-name>
-    <property>/instrumentation/doors/crew/position-norm</property>
+    <property>sim/model/door-positions/crew/position-norm</property>
     <interpolation>
       <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
       <entry><ind> 1 </ind><dep> 0.6 </dep></entry>
@@ -88,4 +128,3 @@
   </model>
 
 </PropertyList>
-
